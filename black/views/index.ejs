@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+
+<h4><%= currentUser %></h4>
+
+<div class="container"> 
+    <header class="jumbotron"> 
+        <div class="container">
+        <h1>Black lives Matter !</h1>
+        <p>View all images!</p>
+        <p>
+            <a class="btn btn-primary btn large" href="/blacks/new">Add new article</a>  
+        </p>
+
+    </div>  
+    <p> 
+        <form action="/blacks" method="get" class="form-inline"> 
+            <div class = "form-group"> 
+                <input type="text" name="search" placeholder="image search" class="form-control">
+                <input type="submit" value="search" class="btn btn-default">
+            
+            </div>
+        </form>
+    </p>            
+</header>
+
+
+        <div class="row"> 
+            <div class="col-lg-12"> 
+                <% blacks.forEach(function(black){ %>
+                    <div> 
+                        <h4><%= black.name %></h4>
+                        <img src="<%= black.image %>">
+                    </div> 
+                    <p> 
+                        <a href="/blacks/<%= black._id %>"class="btn btn-primary">More Info</a>
+                        
+                    </p>
+                    
+                <% }) %> 
+                    
+            </div>        
+        </div>
+
+
+    <%- include('./partials/footer') %>
+
